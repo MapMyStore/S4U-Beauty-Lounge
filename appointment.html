@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Booking - Begin Your Transformation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/jpeg" href="./assets/s4ufavicon.jpg">
+    <style>
+        /* ========== CSS VARIABLES - S4U BEAUTY LOUNGE ========== */
+        :root {
+            --background: 270, 40%, 5%;
+            --foreground: 38, 60%, 92%;
+            --card: 275, 35%, 8%;
+            --card-foreground: 38, 50%, 95%;
+            --primary: 299, 84%, 36%;
+            --primary-foreground: 38, 80%, 95%;
+            --primary-glow: 299, 90%, 55%;
+            --secondary: 275, 30%, 14%;
+            --secondary-foreground: 38, 50%, 92%;
+            --muted: 275, 25%, 12%;
+            --muted-foreground: 38, 20%, 70%;
+            --accent: 36, 92%, 73%;
+            --accent-foreground: 270, 40%, 8%;
+            --accent-glow: 42, 95%, 78%;
+            --border: 285, 25%, 18%;
+            --input: 285, 25%, 14%;
+            --radius: 1rem;
+
+            /* Brand gradients */
+            --gradient-royal: linear-gradient(135deg, hsl(299 84% 36%) 0%, hsl(280 70% 25%) 50%, hsl(36 92% 60%) 100%);
+            --gradient-gold: linear-gradient(135deg, hsl(36 92% 73%), hsl(42 95% 60%));
+            --gradient-glass: linear-gradient(135deg, hsl(299 50% 30% / 0.25), hsl(36 50% 50% / 0.08));
+            --gradient-hero: radial-gradient(ellipse at top, hsl(299 84% 36% / 0.45), transparent 60%), radial-gradient(ellipse at bottom right, hsl(36 92% 60% / 0.25), transparent 50%), hsl(270 40% 5%);
+
+            /* Shadows & glows */
+            --shadow-gold: 0 10px 40px -10px hsl(36 92% 60% / 0.5);
+            --shadow-purple: 0 20px 60px -15px hsl(299 84% 40% / 0.6);
+            --shadow-elegant: 0 25px 80px -20px hsl(280 60% 10% / 0.8);
+            --glow-gold: 0 0 60px hsl(36 92% 65% / 0.45);
+            --glow-purple: 0 0 80px hsl(299 90% 50% / 0.45);
+
+            --transition-luxe: cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        /* ========== RESET & BASE STYLES ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            border-color: hsl(var(--border));
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--gradient-hero);
+            background-attachment: fixed;
+            color: hsl(var(--foreground));
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: -0.02em;
+            font-weight: 700;
+        }
+
+        ::selection {
+            background: hsl(var(--accent) / 0.4);
+            color: hsl(var(--foreground));
+        }
+
+        /* ========== ANIMATED BACKGROUND EFFECTS ========== */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse 1200px 400px at 10% 20%, hsl(299 84% 36% / 0.35) 0%, transparent 40%),
+                radial-gradient(ellipse 1000px 500px at 90% 60%, hsl(36 92% 60% / 0.2) 0%, transparent 45%),
+                radial-gradient(ellipse 800px 600px at 50% 100%, hsl(36 92% 73% / 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+            animation: gradientShift 15s ease-in-out infinite;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    hsl(36 92% 73% / 0.02) 0px,
+                    transparent 1px,
+                    transparent 2px,
+                    hsl(36 92% 73% / 0.02) 3px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    hsl(299 84% 36% / 0.02) 0px,
+                    transparent 1px,
+                    transparent 2px,
+                    hsl(299 84% 36% / 0.02) 3px
+                );
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.5;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% {
+                background: 
+                    radial-gradient(ellipse 1200px 400px at 10% 20%, hsl(299 84% 36% / 0.35) 0%, transparent 40%),
+                    radial-gradient(ellipse 1000px 500px at 90% 60%, hsl(36 92% 60% / 0.2) 0%, transparent 45%),
+                    radial-gradient(ellipse 800px 600px at 50% 100%, hsl(36 92% 73% / 0.08) 0%, transparent 50%);
+            }
+            50% {
+                background: 
+                    radial-gradient(ellipse 1200px 400px at 15% 30%, hsl(299 84% 36% / 0.4) 0%, transparent 40%),
+                    radial-gradient(ellipse 1000px 500px at 85% 50%, hsl(36 92% 60% / 0.25) 0%, transparent 45%),
+                    radial-gradient(ellipse 800px 600px at 45% 95%, hsl(36 92% 73% / 0.12) 0%, transparent 50%);
+            }
+        }
+
+        /* ========== CONTAINER & LAYOUT ========== */
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .booking-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            width: 100%;
+            align-items: stretch;
+        }
+
+        /* ========== LEFT SECTION ========== */
+        .left-section {
+            position: relative;
+            border-radius: 40px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            min-height: 700px;
+            border: 1px solid hsl(var(--accent) / 0.18);
+            background: hsl(275 35% 8% / 0.3);
+            box-shadow: 
+                0 0 80px hsl(36 92% 65% / 0.25),
+                0 0 120px hsl(299 84% 40% / 0.15),
+                0 25px 80px hsl(280 60% 10% / 0.6);
+            animation: slideInLeft 0.8s ease-out;
+            padding: 40px;
+        }
+
+        .contact-info-wrapper {
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-info-title {
+            font-size: 48px;
+            line-height: 1.2;
+            font-weight: 700;
+            margin-bottom: 32px;
+            text-shadow: 0 10px 30px hsl(36 92% 65% / 0.1);
+        }
+
+        .contact-info-title .highlight {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 28px;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .contact-item:nth-child(1) { animation-delay: 0.2s; }
+        .contact-item:nth-child(2) { animation-delay: 0.3s; }
+        .contact-item:nth-child(3) { animation-delay: 0.4s; }
+        .contact-item:nth-child(4) { animation-delay: 0.5s; }
+        .contact-item:nth-child(5) { animation-delay: 0.6s; }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, 
+                hsl(36 92% 73% / 0.2) 0%, 
+                hsl(36 92% 60% / 0.1) 100%);
+            border: 1px solid hsl(var(--accent) / 0.22);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: hsl(var(--accent));
+            font-size: 20px;
+        }
+
+        .contact-detail h4 {
+            font-size: 16px;
+            text-transform: uppercase;
+            color: hsl(var(--accent));
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+
+        .contact-detail p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: hsl(var(--foreground) / 0.85);
+        }
+
+        .contact-detail a {
+            color: hsl(var(--foreground) / 0.85);
+            text-decoration: none;
+            transition: all 0.3s var(--transition-luxe);
+            font-weight: 500;
+        }
+
+        .contact-detail a:hover {
+            color: hsl(var(--accent-glow));
+            text-shadow: 0 0 10px hsl(36 92% 65% / 0.3);
+        }
+
+        .business-hours {
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 1px solid hsl(var(--accent) / 0.15);
+            animation: fadeInUp 0.8s ease-out 0.7s both;
+        }
+
+        .business-hours h4 {
+            font-size: 16px;
+            text-transform: uppercase;
+            color: hsl(var(--accent));
+            margin-bottom: 14px;
+            font-weight: 700;
+        }
+
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            font-size: 14px;
+            color: hsl(var(--foreground) / 0.85);
+            border-bottom: 1px solid hsl(var(--accent) / 0.08);
+        }
+
+        .hours-day {
+            font-weight: 600;
+            color: hsl(var(--foreground));
+        }
+
+        .hours-time {
+            color: hsl(var(--accent));
+        }
+
+        .map-container {
+            margin-top: 32px;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid hsl(var(--accent) / 0.15);
+            box-shadow: 0 10px 40px hsl(36 92% 65% / 0.15);
+            animation: fadeInUp 0.8s ease-out 0.8s both;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 250px;
+            border: none;
+            display: block;
+        }
+
+        /* ========== RIGHT SECTION - FORM ========== */
+        .right-section {
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        .form-card {
+            background: hsl(275 35% 10% / 0.7);
+            backdrop-filter: blur(30px) saturate(160%);
+            -webkit-backdrop-filter: blur(30px) saturate(160%);
+            border: 1px solid hsl(var(--accent) / 0.22);
+            border-radius: 40px;
+            padding: 50px 40px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 0 80px hsl(36 92% 65% / 0.2),
+                0 0 120px hsl(299 84% 40% / 0.15),
+                0 25px 80px hsl(280 60% 10% / 0.5),
+                inset 0 1px 0 hsl(36 92% 73% / 0.15);
+        }
+
+        .form-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                hsl(36 92% 73% / 0.08) 0%, 
+                transparent 50%, 
+                hsl(299 84% 36% / 0.04) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .form-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                hsl(36 92% 73% / 0.4) 50%, 
+                transparent 100%);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .form-header {
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 16px;
+            color: hsl(var(--accent));
+            margin-bottom: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px hsl(36 92% 65% / 0.2);
+        }
+
+        .form-title {
+            font-size: 48px;
+            line-height: 1.2;
+            font-weight: 700;
+            text-shadow: 0 10px 30px hsl(36 92% 65% / 0.1);
+        }
+
+        .form-title .highlight {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-style: italic;
+            filter: drop-shadow(0 8px 15px hsl(36 92% 65% / 0.1));
+        }
+
+        /* ========== FORM GROUPS ========== */
+        .form-group {
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 3;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .form-group:nth-child(1) { animation-delay: 0.4s; }
+        .form-group:nth-child(2) { animation-delay: 0.5s; }
+        .form-group:nth-child(3) { animation-delay: 0.6s; }
+        .form-group:nth-child(4) { animation-delay: 0.7s; }
+        .form-group:nth-child(5) { animation-delay: 0.8s; }
+        .form-group:nth-child(6) { animation-delay: 0.9s; }
+        .form-group:nth-child(7) { animation-delay: 1s; }
+        .form-group:nth-child(8) { animation-delay: 1.1s; }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-row.full {
+            grid-template-columns: 1fr;
+        }
+
+        .field-label {
+            display: block;
+            font-size: 11px;
+            letter-spacing: 0.3em;
+            color: hsl(var(--muted-foreground));
+            margin-bottom: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* ========== INPUT STYLING ========== */
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 16px;
+            width: 18px;
+            height: 18px;
+            color: hsl(var(--accent) / 0.7);
+            pointer-events: none;
+            z-index: 2;
+            flex-shrink: 0;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        input[type="time"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 16px 18px;
+            padding-left: 48px;
+            background: linear-gradient(135deg, 
+                hsl(26 15 46 / 0.4) 0%, 
+                hsl(33 18 55 / 0.3) 100%);
+            border: 1.5px solid hsl(var(--accent) / 0.15);
+            border-radius: 20px;
+            color: hsl(var(--foreground));
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 15px;
+            transition: all 0.3s var(--transition-luxe);
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(10px);
+            box-shadow: inset 0 1px 2px hsl(36 92% 73% / 0.05);
+        }
+
+        input[type="text"]::placeholder,
+        input[type="email"]::placeholder,
+        input[type="date"]::placeholder,
+        input[type="time"]::placeholder,
+        input[type="tel"]::placeholder,
+        textarea::placeholder {
+            color: hsl(var(--muted-foreground) / 0.6);
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="date"]:focus,
+        input[type="time"]:focus,
+        input[type="tel"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: hsl(var(--accent) / 0.6);
+            background: linear-gradient(135deg, 
+                hsl(26 15 46 / 0.5) 0%, 
+                hsl(33 18 55 / 0.4) 100%);
+            box-shadow: 
+                0 0 30px hsl(36 92% 65% / 0.25),
+                inset 0 1px 2px hsl(36 92% 73% / 0.1);
+        }
+
+        select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgba(249, 197, 121, 0.6)" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 20px;
+            padding-right: 40px;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+            font-size: 14px;
+            line-height: 1.5;
+            padding-left: 18px;
+        }
+
+        /* ========== TIME SLOTS ========== */
+        .time-slots {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .time-slot {
+            padding: 12px 16px;
+            background: linear-gradient(135deg, 
+                hsl(26 15 46 / 0.4) 0%, 
+                hsl(33 18 55 / 0.3) 100%);
+            border: 1.5px solid hsl(var(--accent) / 0.15);
+            border-radius: 12px;
+            color: hsl(var(--foreground));
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.3s var(--transition-luxe);
+        }
+
+        .time-slot:hover {
+            border-color: hsl(var(--accent) / 0.4);
+            background: linear-gradient(135deg, 
+                hsl(26 15 46 / 0.5) 0%, 
+                hsl(33 18 55 / 0.4) 100%);
+        }
+
+        .time-slot.selected {
+            background: var(--gradient-gold);
+            color: hsl(var(--accent-foreground));
+            border-color: hsl(var(--accent));
+            box-shadow: 0 0 20px hsl(36 92% 65% / 0.4);
+        }
+
+        /* ========== BUTTON ========== */
+        .form-button {
+            position: relative;
+            width: 100%;
+            padding: 18px 32px;
+            background: var(--gradient-gold);
+            color: hsl(var(--accent-foreground));
+            border: none;
+            border-radius: 50px;
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-top: 10px;
+            overflow: hidden;
+            isolation: isolate;
+            box-shadow: 
+                0 0 40px hsl(36 92% 65% / 0.4),
+                0 0 80px hsl(36 92% 60% / 0.25),
+                0 15px 40px hsl(36 92% 60% / 0.3);
+            transition: all 0.3s var(--transition-luxe);
+            z-index: 3;
+        }
+
+        .form-button::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(115deg, transparent 30%, hsl(var(--accent-foreground) / 0.3) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.7s var(--transition-luxe);
+        }
+
+        .form-button:hover::after {
+            transform: translateX(100%);
+        }
+
+        .form-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: hsl(var(--accent-foreground) / 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            z-index: -1;
+        }
+
+        .form-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                0 0 60px hsl(36 92% 65% / 0.5),
+                0 0 100px hsl(36 92% 60% / 0.35),
+                0 25px 50px hsl(36 92% 60% / 0.4);
+        }
+
+        .form-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .form-button:active {
+            transform: translateY(-1px);
+        }
+
+        .form-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* ========== FOOTER TEXT ========== */
+        .form-footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 13px;
+            color: hsl(var(--muted-foreground));
+            position: relative;
+            z-index: 3;
+            animation: fadeInUp 0.8s ease-out 1.2s both;
+        }
+
+        .form-footer strong {
+            color: hsl(var(--accent));
+        }
+
+        /* ========== MODAL STYLES ========== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal.show {
+            display: flex;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-content {
+            background: hsl(275 35% 10% / 0.95);
+            border: 1px solid hsl(var(--accent) / 0.22);
+            border-radius: 40px;
+            padding: 50px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            box-shadow: 
+                0 0 80px hsl(36 92% 65% / 0.3),
+                0 25px 80px hsl(280 60% 10% / 0.6);
+            backdrop-filter: blur(30px);
+        }
+
+        .modal-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, hsl(36 92% 73%), hsl(42 95% 60%));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 40px;
+            animation: scaleIn 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            color: hsl(var(--accent-foreground));
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .modal-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: hsl(var(--foreground));
+            margin-bottom: 12px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .modal-subtitle {
+            font-size: 14px;
+            color: hsl(var(--muted-foreground));
+            margin-bottom: 32px;
+        }
+
+        .modal-details {
+            background: linear-gradient(135deg, 
+                hsl(299 50% 30% / 0.25) 0%, 
+                hsl(36 50% 50% / 0.08) 100%);
+            border: 1px solid hsl(var(--accent) / 0.15);
+            border-radius: 20px;
+            padding: 24px;
+            margin-bottom: 32px;
+            text-align: left;
+        }
+
+        .modal-detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid hsl(var(--accent) / 0.08);
+            font-size: 14px;
+        }
+
+        .modal-detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .modal-detail-label {
+            color: hsl(var(--muted-foreground));
+            font-weight: 600;
+        }
+
+        .modal-detail-value {
+            color: hsl(var(--accent));
+            font-weight: 600;
+        }
+
+        .modal-button {
+            background: var(--gradient-gold);
+            color: hsl(var(--accent-foreground));
+            border: none;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 15px;
+            width: 100%;
+            transition: all 0.3s var(--transition-luxe);
+            box-shadow: 
+                0 0 40px hsl(36 92% 65% / 0.3),
+                0 15px 40px hsl(36 92% 60% / 0.2);
+        }
+
+        .modal-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 0 60px hsl(36 92% 65% / 0.4),
+                0 20px 50px hsl(36 92% 60% / 0.3);
+        }
+
+        /* ========== ANIMATIONS ========== */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ========== VALIDATION STATES ========== */
+        input.error,
+        select.error,
+        textarea.error {
+            border-color: hsl(0 70% 50%);
+            background: linear-gradient(135deg, 
+                hsl(0 70% 50% / 0.08) 0%, 
+                hsl(0 70% 50% / 0.05) 100%);
+        }
+
+        input.success,
+        select.success,
+        textarea.success {
+            border-color: hsl(100 70% 50%);
+            background: linear-gradient(135deg, 
+                hsl(100 70% 50% / 0.08) 0%, 
+                hsl(100 70% 50% / 0.05) 100%);
+        }
+
+        .error-message {
+            font-size: 12px;
+            color: hsl(0 70% 50%);
+            margin-top: 6px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        /* ========== RESPONSIVE DESIGN ========== */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 30px 20px;
+                min-height: auto;
+            }
+
+            .booking-wrapper {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .left-section {
+                min-height: 400px;
+            }
+
+            .contact-info-title {
+                font-size: 40px;
+            }
+
+            .form-card {
+                padding: 40px 30px;
+            }
+
+            .form-title {
+                font-size: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            .booking-wrapper {
+                gap: 20px;
+            }
+
+            .left-section {
+                min-height: 350px;
+                border-radius: 24px;
+                padding: 30px;
+            }
+
+            .contact-info-title {
+                font-size: 32px;
+            }
+
+            .form-card {
+                padding: 30px 24px;
+                border-radius: 24px;
+            }
+
+            .form-title {
+                font-size: 32px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .time-slots {
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="date"],
+            input[type="time"],
+            input[type="tel"],
+            select,
+            textarea {
+                padding: 14px 16px;
+                padding-left: 44px;
+                font-size: 14px;
+            }
+
+            .field-label {
+                font-size: 10px;
+            }
+
+            .form-button {
+                padding: 16px 24px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px 12px;
+            }
+
+            .left-section {
+                min-height: 280px;
+                padding: 20px;
+            }
+
+            .contact-info-title {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+            .contact-item {
+                margin-bottom: 20px;
+            }
+
+            .form-card {
+                padding: 24px 16px;
+            }
+
+            .form-title {
+                font-size: 24px;
+            }
+
+            .form-label {
+                font-size: 10px;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="date"],
+            input[type="time"],
+            input[type="tel"],
+            select,
+            textarea {
+                padding: 12px 14px;
+                padding-left: 40px;
+                font-size: 13px;
+            }
+
+            .time-slots {
+                grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+                gap: 8px;
+            }
+
+            .time-slot {
+                font-size: 12px;
+                padding: 10px 12px;
+            }
+
+            textarea {
+                min-height: 80px;
+            }
+
+            .form-button {
+                padding: 14px 20px;
+                font-size: 14px;
+            }
+
+            .modal-content {
+                padding: 30px 20px;
+            }
+        }
+
+        /* ========== FOCUS VISIBLE ========== */
+        *:focus-visible {
+            outline: 2px solid hsl(var(--accent));
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="booking-wrapper">
+            <!-- LEFT SECTION -->
+            <div class="left-section">
+                <div class="contact-info-wrapper">
+                    <h3 class="contact-info-title">Get in <span class="highlight">touch</span></h3>
+
+                    <!-- Address -->
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div class="contact-detail">
+                            <h4>Address</h4>
+                            <p>Sundaram Plaza, 9 ,10 Town Extension 1st Street, First St, Sheriff Colony, Floor, Tiruppur, Tamil Nadu 641604</p>
+                        </div>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div class="contact-detail">
+                            <h4>Phone</h4>
+                            <p><a href="tel:+919524570073">+91 95245 70073</a></p>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div class="contact-detail">
+                            <h4>Email</h4>
+                            <p><a href="mailto:s4u@gmail.com">s4u@gmail.com</a></p>
+                        </div>
+                    </div>
+
+                    <!-- Business Hours -->
+                    <div class="business-hours">
+                        <h4>Business Hours</h4>
+                        <div class="hours-row">
+                            <span class="hours-day">Sunday - Saturday</span>
+                            <span class="hours-time">07:00 AM – 09:00 PM</span>
+                        </div>
+                    </div>
+
+                    <!-- Google Maps -->
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.232272892211!2d77.34728797394932!3d11.096059053218902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba9076f01119a41%3A0x1d190c658c594fa2!2sS4U%20Beauty%20Lounge%20Unisex%20Salon%20And%20Academy!5e0!3m2!1sen!2sin!4v1778579218216!5m2!1sen!2sin" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT SECTION -->
+            <div class="right-section">
+                <form class="form-card" id="appointmentForm">
+                    <div class="form-header">
+                        <label class="form-label">Book Appointment</label>
+                        <h2 class="form-title">Begin your <span class="highlight">transformation.</span></h2>
+                    </div>
+
+                    <!-- Full Name & Phone -->
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div>
+                                <label class="field-label">Full Name</label>
+                                <div class="input-wrapper">
+                                    <span class="input-icon"><i class="fa-solid fa-user"></i></span>
+                                    <input type="text" id="fullName" name="fullName" placeholder="Your name" required>
+                                </div>
+                                <div class="error-message" id="fullNameError"></div>
+                            </div>
+                            <div>
+                                <label class="field-label">Phone</label>
+                                <div class="input-wrapper">
+                                    <span class="input-icon"><i class="fa-solid fa-mobile"></i></span>
+                                    <input type="tel" id="phone" name="phone" placeholder="+91 ..." required>
+                                </div>
+                                <div class="error-message" id="phoneError"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div>
+                            <label class="field-label">Email</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon"><i class="fa-solid fa-envelope"></i></span>
+                            <input type="email" id="email" name="email" placeholder="you@email.com">
+                        </div>
+                        <div class="error-message" id="emailError"></div>
+                        </div>
+                        <div>
+                            <label class="field-label">Preferred Date</label>
+                                <div class="input-wrapper">
+                                    <span class="input-icon"><i class="fa-solid fa-calendar-check"></i></span>
+                                    <input type="date" id="date" name="date" required>
+                                </div>
+                                <div class="error-message" id="dateError"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                   
+
+                    <!-- Service Selection -->
+                    <div class="form-group">
+                        <label class="field-label">Service</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon"><i class="fa-solid fa-list-check"></i></span>
+                            <select id="service" name="service" required>
+                                <option value="">Choose a service</option>
+                                <option value="Hair — Cut, Color or Spa">Hair: Cut, Color or Spa</option>
+                                <option value="Skin — Facial or Treatment">Skin: Facial or Treatment</option>
+                                <option value="Nails — Mani, Pedi, Extensions">Nails: Manicure, Pedicure, Extensions</option>
+                                <option value="Bridal Makeup Trial">Bridal Makeup Trial</option>
+                                <option value="Bridal Package Consultation">Bridal Package Consultation</option>
+                                <option value="Academy Counselling">Academy Counselling</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="error-message" id="serviceError"></div>
+                    </div>
+
+                    
+
+                    <!-- Time Slots -->
+                    <div class="form-group">
+                        <label class="field-label">Preferred Time</label>
+                        <div id="timeSlots" class="time-slots"></div>
+                        <input type="hidden" id="time" name="time" required>
+                        <div class="error-message" id="timeError"></div>
+                    </div>
+
+                    <!-- Notes -->
+                    <div class="form-group">
+                        <label class="field-label">Notes (Optional)</label>
+                        <div class="input-wrapper">
+                            <textarea id="notes" name="notes" placeholder="Let us know your preferences or concerns"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="form-button">Confirm Appointment</button>
+
+                    <!-- Footer -->
+                    <div class="form-footer">
+                        We'll confirm by call or <strong>WhatsApp within 12 hours.</strong>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- SUCCESS MODAL -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-icon">✓</div>
+            <h3 class="modal-title">Appointment Confirmed!</h3>
+            <p class="modal-subtitle">Your appointment has been booked successfully</p>
+            
+            <div class="modal-details">
+                <div class="modal-detail-item">
+                    <span class="modal-detail-label"><i class="fa-solid fa-calendar-check"></i> Date</span>
+                    <span class="modal-detail-value" id="confirmDate">-</span>
+                </div>
+                <div class="modal-detail-item">
+                    <span class="modal-detail-label"><i class="fa-solid fa-clock"></i> Time</span>
+                    <span class="modal-detail-value" id="confirmTime">-</span>
+                </div>
+                <div class="modal-detail-item">
+                    <span class="modal-detail-label"><i class="fa-solid fa-clipboard-list"></i> Service</span>
+                    <span class="modal-detail-value" id="confirmService">-</span>
+                </div>
+                <div class="modal-detail-item">
+                    <span class="modal-detail-label"><i class="fa-solid fa-user"></i> Name</span>
+                    <span class="modal-detail-value" id="confirmName">-</span>
+                </div>
+                <div class="modal-detail-item">
+                    <span class="modal-detail-label"><i class="fa-solid fa-phone"></i> Phone</span>
+                    <span class="modal-detail-value" id="confirmPhone">-</span>
+                </div>
+            </div>
+
+            <p style="font-size: 12px; color: hsl(var(--muted-foreground)); margin-bottom: 24px;">We'll confirm by call or WhatsApp within 12 hours.</p>
+            <button class="modal-button" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        const form = document.getElementById('appointmentForm');
+        const formInputs = {
+            fullName: document.getElementById('fullName'),
+            phone: document.getElementById('phone'),
+            email: document.getElementById('email'),
+            service: document.getElementById('service'),
+            date: document.getElementById('date'),
+            time: document.getElementById('time'),
+            notes: document.getElementById('notes')
+        };
+
+        const timeSlotContainer = document.getElementById('timeSlots');
+
+        // Validation patterns
+        const patterns = {
+            phone: /^[+]?[(]?[0-9]{1,4}[)]?[-\s.]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{1,9}$/,
+            email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        };
+
+        // ===== DATE & TIME LOGIC =====
+        // Set minimum date to today
+        const today = new Date();
+        today.setDate(today.getDate());
+        const minDate = today.toISOString().split('T')[0];
+        formInputs.date.setAttribute('min', minDate);
+
+        // Set maximum date to 3 months from now
+        const maxDate = new Date();
+        maxDate.setMonth(maxDate.getMonth() + 3);
+        formInputs.date.setAttribute('max', maxDate.toISOString().split('T')[0]);
+
+        // Business hours
+        const BUSINESS_HOURS = {
+            weekday: { start: 7, end: 21 }, // 7 AM - 9 PM
+            saturday: { start: 7, end: 21 }, // 7 AM - 9 PM
+            sunday: null // Closed
+        };
+
+        // Generate time slots based on selected date
+        function generateTimeSlots(dateStr) {
+            if (!dateStr) {
+                timeSlotContainer.innerHTML = '';
+                return;
+            }
+
+            const selectedDate = new Date(dateStr + 'T00:00:00');
+            const dayOfWeek = selectedDate.getDay();
+
+            // Check if Sunday (closed)
+            if (dayOfWeek === 0) {
+                timeSlotContainer.innerHTML = '<p style="grid-column: 1/-1; color: var(--muted-foreground); font-size: 13px;">We are closed on Sundays. Please select another day.</p>';
+                formInputs.time.value = '';
+                return;
+            }
+
+            // Get business hours
+            const hours = BUSINESS_HOURS.weekday;
+            
+            timeSlotContainer.innerHTML = '';
+            
+            for (let hour = hours.start; hour < hours.end; hour++) {
+                const timeBtn = document.createElement('button');
+                timeBtn.type = 'button';
+                timeBtn.className = 'time-slot';
+                
+                const displayHour = hour > 12 ? hour - 12 : (hour === 0 ? 12 : hour);
+                const ampm = hour >= 12 ? 'PM' : 'AM';
+                const timeText = `${displayHour}:00 ${ampm}`;
+                
+                timeBtn.textContent = timeText;
+                timeBtn.dataset.time = timeText;
+                
+                timeBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // Remove previous selection
+                    document.querySelectorAll('.time-slot').forEach(btn => btn.classList.remove('selected'));
+                    
+                    // Select this button
+                    timeBtn.classList.add('selected');
+                    formInputs.time.value = timeText;
+                });
+                
+                timeSlotContainer.appendChild(timeBtn);
+            }
+        }
+
+        // Listen to date change
+        formInputs.date.addEventListener('change', (e) => {
+            generateTimeSlots(e.target.value);
+            formInputs.time.value = ''; // Reset time selection
+        });
+
+        function validateField(fieldName) {
+            const field = formInputs[fieldName];
+            const errorElement = document.getElementById(`${fieldName}Error`);
+            let isValid = true;
+            let errorMsg = '';
+
+            field.classList.remove('error', 'success');
+            if (errorElement) {
+                errorElement.textContent = '';
+                errorElement.classList.remove('show');
+            }
+
+            switch (fieldName) {
+                case 'fullName':
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        errorMsg = 'Please enter your full name';
+                    } else if (field.value.trim().length < 3) {
+                        isValid = false;
+                        errorMsg = 'Name must be at least 3 characters';
+                    }
+                    break;
+
+                case 'phone':
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        errorMsg = 'Please enter your phone number';
+                    } else if (!patterns.phone.test(field.value)) {
+                        isValid = false;
+                        errorMsg = 'Please enter a valid phone number';
+                    }
+                    break;
+
+                case 'email':
+                    if (!field.value.trim() && field.required) {
+                        isValid = false;
+                        errorMsg = 'Please enter your email';
+                    } else if (field.value.trim() && !patterns.email.test(field.value)) {
+                        isValid = false;
+                        errorMsg = 'Please enter a valid email address';
+                    }
+                    break;
+
+                case 'service':
+                    if (!field.value) {
+                        isValid = false;
+                        errorMsg = 'Please select a service';
+                    }
+                    break;
+
+                case 'date':
+                    if (!field.value) {
+                        isValid = false;
+                        errorMsg = 'Please select a date';
+                    } else {
+                        const selectedDate = new Date(field.value);
+                        const todayDate = new Date();
+                        todayDate.setHours(0, 0, 0, 0);
+                        if (selectedDate < todayDate) {
+                            isValid = false;
+                            errorMsg = 'Date must be in the future';
+                        }
+                    }
+                    break;
+
+                case 'time':
+                    if (!field.value) {
+                        isValid = false;
+                        errorMsg = 'Please select a time slot';
+                    }
+                    break;
+            }
+
+            if (!isValid) {
+                field.classList.add('error');
+                if (errorElement) {
+                    errorElement.textContent = errorMsg;
+                    errorElement.classList.add('show');
+                }
+            } else {
+                field.classList.add('success');
+            }
+
+            return isValid;
+        }
+
+        // Real-time validation on blur
+        Object.keys(formInputs).forEach(fieldName => {
+            if (fieldName !== 'notes' && fieldName !== 'time') {
+                formInputs[fieldName].addEventListener('blur', () => {
+                    validateField(fieldName);
+                });
+
+                formInputs[fieldName].addEventListener('input', () => {
+                    if (formInputs[fieldName].classList.contains('error')) {
+                        validateField(fieldName);
+                    }
+                });
+            }
+        });
+
+        // Form submission
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const fieldsToValidate = ['fullName', 'phone', 'service', 'date', 'time'];
+            let isFormValid = true;
+
+            fieldsToValidate.forEach(fieldName => {
+                if (!validateField(fieldName)) {
+                    isFormValid = false;
+                }
+            });
+
+            if (isFormValid) {
+                const formData = {
+                    name: formInputs.fullName.value.trim(),
+                    phone: formInputs.phone.value.trim(),
+                    email: formInputs.email.value.trim(),
+                    service: formInputs.service.value,
+                    date: formInputs.date.value,
+                    time: formInputs.time.value,
+                    notes: formInputs.notes.value.trim(),
+                    bookingTime: new Date().toLocaleString()
+                };
+
+                // Format date for display
+                const dateObj = new Date(formData.date + 'T00:00:00');
+                const formattedDate = dateObj.toLocaleDateString('en-US', { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                });
+
+                // Update modal with appointment details
+                document.getElementById('confirmDate').textContent = formattedDate;
+                document.getElementById('confirmTime').textContent = formData.time;
+                document.getElementById('confirmService').textContent = formData.service;
+                document.getElementById('confirmName').textContent = formData.name;
+                document.getElementById('confirmPhone').textContent = formData.phone;
+
+                // Show success modal
+                showModal();
+
+                // Send data to Google Sheet (optional)
+                try {
+                    await sendToGoogleSheet(formData);
+                } catch (error) {
+                    console.error('Error saving appointment:', error);
+                }
+
+                // Reset form
+                form.reset();
+                timeSlotContainer.innerHTML = '';
+                Object.values(formInputs).forEach(field => {
+                    field.classList.remove('error', 'success');
+                });
+            }
+        });
+
+        // Function to send data to Google Sheets (optional)
+        async function sendToGoogleSheet(data) {
+            // Replace with your Google Apps Script deployment URL if needed
+            const scriptURL = 'https://script.google.com/a/macros/mapmystore.com/s/AKfycbx7Zg3nfLrBGjp5xlhmYbUG9EfHCGti5qqGM3cfRXMDrERWbcPQ5saDuDo2-y76QTDt/exec';
+            
+            try {
+                const response = await fetch(scriptURL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: new URLSearchParams(data)
+                });
+                
+                if (response.ok) {
+                    console.log('Appointment saved successfully');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        // Modal functions
+        function showModal() {
+            document.getElementById('successModal').classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('successModal').classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on overlay click
+        document.getElementById('successModal').addEventListener('click', (e) => {
+            if (e.target.id === 'successModal') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>

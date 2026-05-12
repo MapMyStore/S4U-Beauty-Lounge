@@ -1,0 +1,2190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore our salon services, bridal packages and beauty academy courses. Crafted for transformation.">
+    <meta name="theme-color" content="#1f0933">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="salon services, bridal makeup, beauty academy, hair salon, skin care, nails, Tirupur">
+    <meta name="author" content="S4U Beauty Lounge">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Services — S4U Beauty Lounge">
+    <meta property="og:description" content="Salon, Bridal and Academy services under one luxurious roof.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://s4ubeautylounge.com/services">
+    <meta property="og:image" content="https://s4ubeautylounge.com/images/service-bridal.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Services — S4U Beauty Lounge">
+    <meta name="twitter:description" content="Salon, Bridal and Academy services under one luxurious roof.">
+    <meta name="twitter:image" content="https://s4ubeautylounge.com/images/service-bridal.jpg">
+    
+    <title>Services — Salon, Bridal & Academy | S4U Beauty Lounge</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+     <!-- Font Awesome Icons CDN - Add to <head> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/jpeg" href="./assets/s4ufavicon.jpg">
+    <style>
+        /* ============================================
+           LUXE SALON DESIGN SYSTEM - CSS VARIABLES
+           ============================================ */
+        :root {
+            /* Spacing & Borders */
+            --radius: 0.75rem;
+
+            /* Core Colors - using oklch */
+            --background: oklch(0.12 0.04 310);
+            --foreground: oklch(0.97 0.01 90);
+            --card: oklch(0.16 0.05 310);
+            --card-foreground: oklch(0.97 0.01 90);
+            --popover: oklch(0.14 0.05 310);
+            --popover-foreground: oklch(0.97 0.01 90);
+
+            /* Primary - Royal Purple */
+            --primary: oklch(0.52 0.25 325);
+            --primary-foreground: oklch(0.98 0.01 90);
+            --primary-glow: oklch(0.62 0.28 325);
+            --primary-deep: oklch(0.32 0.18 320);
+
+            /* Accent - Soft Luxury Gold */
+            --gold: oklch(0.85 0.12 80);
+            --gold-foreground: oklch(0.18 0.05 310);
+            --gold-glow: oklch(0.92 0.10 85);
+
+            /* Secondary */
+            --secondary: oklch(0.22 0.06 310);
+            --secondary-foreground: oklch(0.97 0.01 90);
+            --muted: oklch(0.20 0.04 310);
+            --muted-foreground: oklch(0.72 0.03 90);
+
+            /* UI Elements */
+            --accent: oklch(0.85 0.12 80);
+            --accent-foreground: oklch(0.18 0.05 310);
+            --border: oklch(0.30 0.06 320 / 0.4);
+            --input: oklch(0.25 0.05 315);
+            --ring: oklch(0.85 0.12 80);
+
+            /* Gradients */
+            --gradient-royal: linear-gradient(
+                135deg,
+                oklch(0.52 0.25 325) 0%,
+                oklch(0.32 0.18 320) 50%,
+                oklch(0.18 0.08 310) 100%
+            );
+
+            --gradient-gold: linear-gradient(
+                135deg,
+                oklch(0.92 0.10 85) 0%,
+                oklch(0.78 0.14 75) 100%
+            );
+
+            --gradient-glossy: linear-gradient(
+                135deg,
+                oklch(0.52 0.25 325 / 0.85) 0%,
+                oklch(0.18 0.08 310 / 0.4) 50%,
+                oklch(0.85 0.12 80 / 0.25) 100%
+            );
+
+            --gradient-dark: radial-gradient(
+                ellipse at top,
+                oklch(0.22 0.10 320) 0%,
+                oklch(0.10 0.04 310) 70%
+            );
+
+            /* Shadows */
+            --shadow-glow-gold: 0 0 40px oklch(0.85 0.12 80 / 0.35), 0 0 80px oklch(0.85 0.12 80 / 0.15);
+            --shadow-glow-purple: 0 0 60px oklch(0.52 0.25 325 / 0.4);
+            --shadow-elegant: 0 20px 60px -20px oklch(0.05 0.03 310 / 0.8);
+            --shadow-card: 0 10px 40px -10px oklch(0.08 0.04 320 / 0.6);
+
+            /* Transitions */
+            --transition-luxe: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* ============================================
+           RESET & BASE STYLES
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            border-color: var(--border);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--gradient-dark);
+            background-attachment: fixed;
+            color: var(--foreground);
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: -0.01em;
+            line-height: 1.1;
+        }
+
+        ::selection {
+            background: var(--gold);
+            color: var(--gold-foreground);
+        }
+
+        /* ============================================
+           UTILITY CLASSES
+           ============================================ */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .font-sans {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .bg-gradient-royal {
+            background: var(--gradient-royal);
+        }
+
+        .bg-gradient-gold {
+            background: var(--gradient-gold);
+        }
+
+        .bg-gradient-glossy {
+            background: var(--gradient-glossy);
+        }
+
+        .text-gradient-gold {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-gradient-royal {
+            background: linear-gradient(135deg, oklch(0.92 0.10 85), oklch(0.62 0.28 325));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .shadow-glow-gold {
+            box-shadow: var(--shadow-glow-gold);
+        }
+
+        .shadow-glow-purple {
+            box-shadow: var(--shadow-glow-purple);
+        }
+
+        .shadow-elegant {
+            box-shadow: var(--shadow-elegant);
+        }
+
+        .shadow-card {
+            box-shadow: var(--shadow-card);
+        }
+
+        /* ============================================
+           GLASSMORPHISM EFFECTS
+           ============================================ */
+        .glass {
+            background: oklch(0.18 0.05 315 / 0.5);
+            backdrop-filter: blur(20px) saturate(140%);
+            -webkit-backdrop-filter: blur(20px) saturate(140%);
+            border: 1px solid oklch(0.85 0.12 80 / 0.15);
+        }
+
+        .glass-strong {
+            background: oklch(0.16 0.06 315 / 0.75);
+            backdrop-filter: blur(24px) saturate(160%);
+            -webkit-backdrop-filter: blur(24px) saturate(160%);
+            border: 1px solid oklch(0.85 0.12 80 / 0.2);
+        }
+
+        .gold-border {
+            border: 1px solid oklch(0.85 0.12 80 / 0.4);
+        }
+
+        
+
+        /* ============================================
+           BACKGROUND EFFECTS
+           ============================================ */
+        .orb {
+            position: absolute;
+            border-radius: 9999px;
+            filter: blur(80px);
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .grain {
+            position: relative;
+        }
+
+        .grain::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.06;
+            mix-blend-mode: overlay;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        /* ============================================
+           ANIMATIONS
+           ============================================ */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-30px) scale(1.05);
+            }
+        }
+
+        @keyframes fade-up {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        .animate-float {
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .animate-fade-up {
+            animation: fade-up 0.9s var(--transition-luxe) both;
+        }
+
+        .animate-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        .animate-shimmer {
+            background-size: 200% 100%;
+            animation: shimmer 3s linear infinite;
+        }
+
+        /* ============================================
+   NAVIGATION
+   ============================================ */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: oklch(0.12 0.04 310 / 0.7);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px); 
+   border-bottom: 1px solid oklch(0.85 0.12 80 / 0.1);
+}
+
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.0rem 0rem;
+}
+
+.logo {
+  font-family: "Playfair Display", serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--foreground);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-icon {
+  width: 200px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logo-icon img {
+
+  width: 100%;
+  object-fit: contain;
+}
+
+nav .nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  list-style: none;
+}
+
+nav a {
+  color: var(--foreground);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color 0.3s var(--transition-luxe);
+}
+
+nav a:hover {
+  color: var(--gold);
+}
+
+nav .nav-links a.active {
+  color: var(--gold);
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 0.25rem;
+}
+
+.btn-book {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--gradient-gold);
+  color: var(--gold-foreground);
+  text-decoration: none;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  box-shadow: var(--shadow-glow-gold);
+  transition: transform 0.3s var(--transition-luxe);
+}
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            position: relative;
+            padding: 10rem 1.5rem 5rem;
+            overflow: hidden;
+        }
+
+        .hero-orb-1 {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: oklch(0.52 0.25 325 / 0.4);
+            top: -80px;
+            left: -160px;
+            border-radius: 9999px;
+            filter: blur(80px);
+            opacity: 0.5;
+            pointer-events: none;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero-orb-2 {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: oklch(0.85 0.12 80 / 0.3);
+            top: 80px;
+            right: -160px;
+            border-radius: 9999px;
+            filter: blur(80px);
+            opacity: 0.5;
+            pointer-events: none;
+            animation: float 8s ease-in-out infinite;
+            animation-delay: 2s;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 56rem;
+            margin: 0 auto;
+            margin-bottom:3rem;
+        }
+
+        .hero-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 8vw, 5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.05;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(2rem, 8vw, 5rem);
+            font-weight: 400;
+            font-style: italic;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 2rem;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: oklch(0.97 0.01 90 / 0.75);
+            max-width: 42rem;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+
+        .italic{
+            font-style:italic;
+        }
+        .hero-subtitle-1 {
+  font-size: 1rem;
+  color: color-mix(in oklch, var(--foreground) 60%, transparent);
+  font-style: italic;
+  max-width: 47rem;
+  margin: 2rem auto;
+  line-height: 1.6;
+  animation: fade-up 0.9s var(--transition-luxe) 0.25s both;
+}
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.3rem;
+            margin-top:70px;
+        }
+
+        .hero-button {
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            background: oklch(0.16 0.06 315 / 0.5);
+            backdrop-filter: blur(20px) saturate(140%);
+            -webkit-backdrop-filter: blur(20px) saturate(140%);
+            border: 1px solid oklch(0.85 0.12 80 / 0.15);
+            color: var(--foreground);
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.5s var(--transition-luxe);
+        }
+
+        .hero-button:hover {
+            border-color: oklch(0.85 0.12 80 / 0.5);
+            transform: translateY(-2px);
+        }
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  background: var(--gradient-gold);
+  color: var(--gold-foreground);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  text-transform: capitalize;
+  box-shadow: var(--shadow-glow-gold);
+  transition: transform 0.5s var(--transition-luxe);
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  background: oklch(0.16 0.06 315 / 0.75);
+  border: 1px solid oklch(0.85 0.12 80 / 0.2);
+  color: var(--gold);
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all 0.5s var(--transition-luxe);
+  cursor: pointer;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.btn-secondary:hover {
+  border-color: color-mix(in oklch, var(--gold) 50%, transparent);
+}
+/* ============================================
+   BUTTON EFFECTS
+   ============================================ */
+
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn-shine::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    oklch(1 0 0 / 0.35) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.8s var(--transition-luxe);
+  z-index: 1;
+}
+
+.btn-shine:hover::before {
+  transform: translateX(100%);
+}
+
+.hover-gold-glow {
+  transition: all 0.5s var(--transition-luxe);
+}
+
+.hover-gold-glow:hover {
+  box-shadow: var(--shadow-glow-gold);
+  transform: translateY(-4px);
+}
+        /* ============================================
+           SALON SERVICES SECTION
+           ============================================ */
+        .salon-section {
+            position: relative;
+            padding: 4rem 1.5rem;
+            scroll-margin-top: 6rem;
+        }
+
+        .section-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            align-items:flex-end;
+        }
+
+        .section-header-left h2 {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .section-header-left .label {
+            font-size: 0.75rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section-header-right p {
+            color: oklch(0.72 0.03 90);
+            line-height: 1.8;
+            font-style:italic;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background: oklch(0.16 0.06 315 / 0.75);
+            backdrop-filter: blur(24px) saturate(160%);
+            -webkit-backdrop-filter: blur(24px) saturate(160%);
+            border: 1px solid oklch(0.85 0.12 80 / 0.2);
+            border-radius: 1.75rem;
+            padding: 2rem;
+            transition: all 0.5s var(--transition-luxe);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gradient-glossy);
+            opacity: 0;
+            transition: opacity 0.5s var(--transition-luxe);
+            pointer-events: none;
+        }
+
+        .service-card:hover {
+            box-shadow: var(--shadow-glow-gold);
+            transform: translateY(-4px);
+        }
+
+        .service-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .service-header {
+            display: flex;
+            items-align: justify-between;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-header-left {
+            flex: 1;
+        }
+
+        .service-number {
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .service-title {
+            font-size: 1.875rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 0;
+        }
+
+        .service-icon {
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 9999px;
+            border: 1.5px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1.25rem;
+            transition: transform 0.7s var(--transition-luxe);
+            flex-shrink: 0;
+        }
+
+        .service-card:hover .service-icon {
+            transform: rotate(45deg);
+        }
+
+        .service-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .service-item {
+            display: flex;
+            gap: 0.75rem;
+            color: oklch(0.97 0.01 90 / 0.8);
+            padding: 0.5rem 0;
+            border-bottom: 1px solid oklch(0.85 0.12 80 / 0.1);
+            font-size: 0.95rem;
+        }
+
+        .service-item:last-child {
+            border-bottom: none;
+        }
+
+        .service-item::before {
+            content: '';
+            width: 0.25rem;
+            height: 0.25rem;
+            border-radius: 9999px;
+            background: var(--gold);
+            margin-top: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .service-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            color: var(--gold);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            transition: transform 0.5s var(--transition-luxe);
+        }
+
+        .service-cta:hover {
+            transform: translateX(0.5rem);
+        }
+
+        /* ============================================
+           MEMBERSHIP SECTION
+           ============================================ */
+        .membership {
+            position: relative;
+            height: 280px;
+            border-radius: 1.75rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-elegant);
+            margin-bottom: 3rem;
+        }
+
+        .membership-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .membership-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, oklch(0.12 0.04 310 / 0.9) via-color oklch(0.12 0.04 310 / 0.4) to oklch(0.12 0.04 310 / 0));
+        }
+
+        .membership-content {
+            position: relative;
+            z-index: 10;
+            padding: 6rem 4rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            max-width: 52rem;
+            text-align: center;
+        }
+
+        .membership-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gold);
+            
+            margin-bottom: 1rem;
+        }
+
+        .membership-title {
+            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 2.5rem;
+        }
+
+        .membership-description {
+            color: oklch(0.72 0.03 90);
+            font-size: 0.875rem;
+            line-height: 1.8;
+        }
+
+        /* ============================================
+           BRIDAL SECTION
+           ============================================ */
+        .bridal-section {
+            position: relative;
+            padding: 4rem 1.5rem;
+            scroll-margin-top: 6rem;
+        }
+
+        .bridal-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            max-width: 48rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .bridal-header .label {
+            font-size: 0.75rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .bridal-header h2 {
+            font-size: clamp(2rem, 7vw, 4.5rem);
+            line-height: 1.05;
+        }
+
+        .bridal-showcase {
+            position: relative;
+            border-radius: 2.5rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-elegant);
+            min-height: 700px;
+        }
+
+        .bridal-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bridal-gradient-top {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, oklch(0.12 0.04 310) via-color oklch(0.12 0.04 310 / 0.6) to oklch(0.12 0.04 310 / 0.2));
+            z-index: 1;
+        }
+
+        .bridal-gradient-side {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, oklch(0.12 0.04 310 / 0.7) via-color oklch(0.12 0.04 310 / 0) to oklch(0.12 0.04 310 / 0));
+            z-index: 2;
+        }
+
+        .bridal-content {
+            position: absolute;
+            inset: 0;
+            z-index: 10;
+            padding: 2.5rem 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: flex-end;
+            min-height: 600px;
+        }
+
+        .bridal-text h3 {
+            font-size: clamp(1.75rem, 5vw, 3.25rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .bridal-text p {
+            color: oklch(0.97 0.01 90 / 0.8);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            max-width: 32rem;
+        }
+
+        /* ============================================
+           BRIDAL PACKAGES
+           ============================================ */
+        .bridal-packages {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .package {
+            background: oklch(0.16 0.06 315 / 0.75);
+            backdrop-filter: blur(24px) saturate(160%);
+            -webkit-backdrop-filter: blur(24px) saturate(160%);
+            border: 1px solid oklch(0.85 0.12 80 / 0.2);
+            border-radius: 1rem;
+            padding: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.5s var(--transition-luxe);
+        }
+
+        .package:hover {
+            box-shadow: var(--shadow-glow-gold);
+            transform: translateY(-4px);
+        }
+        .package-details{
+            padding-right:3px;
+        }
+
+        .package-details h4 {
+            font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 0.5rem;
+            transition: color 0.5s var(--transition-luxe);
+        }
+
+        .package-details p{
+            color: rgba(246, 234, 216, 0.817);
+            font-size:13px;
+            margin-bottom: 0.5rem;
+            
+        }
+
+        .package:hover .package-details h4 {
+            color: var(--gold);
+        }
+
+        .package-includes {
+            font-size: 0.75rem;
+            color: oklch(0.72 0.03 90);
+            letter-spacing: 0.05em;
+            margin-top: 0.25rem;
+        }
+
+        .package-price {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.875rem;
+            white-space: nowrap;
+        }
+
+        /* ============================================
+       BRIDAL TABS - NEW STYLES
+       ============================================ */
+    .bridal-packages-container {
+        position: relative;
+    }
+ 
+    .bridal-tabs {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid oklch(0.85 0.12 80 / 0.2);
+        padding-bottom: 0;
+    }
+ 
+    .bridal-tab-trigger {
+        position: relative;
+        background: none;
+        border: none;
+        padding: 0.75rem 0;
+        cursor: pointer;
+        transition: all 0.5s var(--transition-luxe);
+        font-family: 'Playfair Display', serif;
+        font-size: 1.125rem;
+        color: oklch(0.72 0.03 90);
+        font-weight: 500;
+        letter-spacing: 0.05em;
+    }
+ 
+    .bridal-tab-trigger:hover {
+        color: var(--gold);
+    }
+ 
+    .bridal-tab-trigger.active {
+        color: var(--gold);
+    }
+ 
+    /* Active Tab Underline Indicator */
+    .tab-indicator {
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--gradient-gold);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.5s var(--transition-luxe);
+    }
+ 
+    .bridal-tab-trigger.active .tab-indicator {
+        transform: scaleX(1);
+    }
+ 
+    /* Tab Content Animations */
+    .bridal-tab-content {
+        opacity: 0;
+        transform: translateY(20px);
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        transition: all 0.5s var(--transition-luxe);
+    }
+ 
+    .bridal-tab-content.active {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+    }
+ 
+    /* Ensure proper spacing for stacked tabs */
+    .bridal-packages-container {
+        min-height: 300px;
+    }
+ 
+    /* Enhanced package hover state */
+    .package {
+        transition: all 0.5s var(--transition-luxe);
+    }
+ 
+    .package:hover {
+        box-shadow: var(--shadow-glow-gold);
+        transform: translateY(-4px);
+    }
+ 
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .bridal-tabs {
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+ 
+        .bridal-tab-trigger {
+            font-size: 1rem;
+            padding: 0.5rem 0;
+        }
+ 
+        .bridal-packages-container {
+            min-height: 250px;
+        }
+    }
+ 
+    @media (max-width: 480px) {
+        .bridal-tabs {
+            gap: 0.75rem;
+        }
+ 
+        .bridal-tab-trigger {
+            font-size: 0.95rem;
+        }
+    }
+
+        /* ============================================
+           ACADEMY SECTION
+           ============================================ */
+        .academy-section {
+            position: relative;
+            padding: 8rem 1.5rem;
+            scroll-margin-top: 6rem;
+        }
+
+        .academy-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+            align-items: flex-start;
+        }
+
+        .academy-header h2 {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .academy-header .label {
+            font-size: 0.75rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .academy-description {
+            color: oklch(0.72 0.03 90);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .academy-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .academy-tag {
+            padding: 0.375rem 1rem;
+            border-radius: 9999px;
+            border: 1px solid oklch(0.85 0.12 80 / 0.4);
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .course-card {
+            background: oklch(0.16 0.06 315 / 0.75);
+            backdrop-filter: blur(24px) saturate(160%);
+            -webkit-backdrop-filter: blur(24px) saturate(160%);
+            border: 1px solid oklch(0.85 0.12 80 / 0.2);
+            border-radius: 1.75rem;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            transition: all 0.5s var(--transition-luxe);
+        }
+
+        .course-card:hover {
+            box-shadow: var(--shadow-glow-gold);
+            transform: translateY(-4px);
+        }
+
+        .course-info {
+            flex: 1;
+        }
+
+        .course-number {
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .course-title {
+            font-size: 1.375rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 0.75rem;
+            transition: color 0.5s var(--transition-luxe);
+        }
+
+        .course-card:hover .course-title {
+            color: var(--gold);
+        }
+
+        .course-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.75rem;
+            color: oklch(0.72 0.03 90);
+        }
+
+        .course-arrow {
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 9999px;
+            background: var(--gradient-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-foreground);
+            font-size: 1.25rem;
+            transition: transform 0.5s var(--transition-luxe);
+            flex-shrink: 0;
+            text-decoration:none
+        }
+        .course-arrow a{
+    text-decoration:none
+        }
+
+        /* ============================================
+           ENROLLMENT CTA SECTION
+           ============================================ */
+        .enrollment-cta {
+            position: relative;
+            border-radius: 2.5rem;
+            padding: 3rem 4rem;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .enrollment-background {
+            position: absolute;
+            inset: 0;
+            background: var(--gradient-royal);
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .enrollment-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+            mix-blend-mode: overlay;
+        }
+
+        .enrollment-orb {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: oklch(0.85 0.12 80 / 0.4);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 9999px;
+            filter: blur(80px);
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .enrollment-content {
+            position: relative;
+            z-index: 10;
+            max-width: 42rem;
+            margin: 0 auto;
+        }
+
+        .enrollment-title {
+            font-size: clamp(1.75rem, 5vw, 3rem);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .enrollment-description {
+            color: oklch(0.97 0.01 90 / 0.8);
+            margin-bottom: 2rem;
+        }
+
+    /* ============================================
+   FOOTER
+   ============================================ */
+
+.container-1 {
+  max-width: 80%;
+  margin: 0 auto;
+  width: 100%;
+}
+
+footer {
+  position: relative;
+  padding: 4rem 0rem 2rem;
+  border-top: 1px solid color-mix(in oklch, var(--gold) 20%, transparent);
+  background: oklch(0.10 0.03 310);
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  margin:20px;
+}
+
+.footer-brand{
+    max-width:350px;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    text-align: center;
+}
+
+
+.footer-brand h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-brand-icon {
+  width: 28px;
+  height: 28px;
+  background: var(--gradient-gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  color: var(--gold-foreground);
+  font-size: 0.75rem;
+}
+
+.footer-brand p {
+  font-size: 0.875rem;
+  color: color-mix(in oklch, var(--muted-foreground), transparent);
+  line-height: 1.6;
+  margin-top: 1rem;
+}
+
+.footer-social-icons {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.footer-social-icons a {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: oklch(0.16 0.06 315 / 0.5);
+  border: 1px solid oklch(0.85 0.12 80 / 0.3);
+  border-radius: 50%;
+  color: var(--gold);
+  font-size: 1.25rem;
+  transition: all 0.3s var(--transition-luxe);
+  text-decoration: none;
+}
+
+.footer-social-icons a:hover {
+  background: var(--gold);
+  color: var(--gold-foreground);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow-gold);
+}
+
+.footer-section h4 {
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  color: var(--gold);
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-section a {
+  font-size: 0.875rem;
+  color: color-mix(in oklch, var(--muted-foreground), transparent);
+  text-decoration: none;
+  transition: color 0.3s var(--transition-luxe);
+}
+
+.footer-section a:hover {
+  color: var(--gold);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  border-top: 1px solid color-mix(in oklch, var(--gold) 20%, transparent);
+  font-size: 0.75rem;
+  color: color-mix(in oklch, var(--muted-foreground), transparent);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.footer-contact-link {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 0.875rem;
+        color: color-mix(in oklch, var(--muted-foreground), transparent);
+        text-decoration: none;
+        transition: all 0.3s var(--transition-luxe);
+        padding: 0.25rem 0;
+    }
+ 
+    .footer-contact-link:hover {
+        color: var(--gold);
+        transform: translateX(0.25rem);
+    }
+ 
+    .footer-contact-link i {
+        color: var(--gold);
+        width: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: color 0.3s var(--transition-luxe);
+    }
+ 
+    .footer-contact-link:hover i {
+        color: var(--gold);
+        transform: scale(1.1);
+    }
+
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}
+
+section {
+  position: relative;
+}
+
+        /* ============================================
+           RESPONSIVENESS
+           ============================================ */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 5rem 1.5rem 3rem;
+            }
+
+            .section-header {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .bridal-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 1.5rem;
+            }
+
+            .academy-header {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .membership-content {
+                padding: 1.5rem;
+            }
+
+            .salon-section,
+            .bridal-section,
+            .academy-section {
+                padding: 4rem 1.5rem;
+            }
+
+            .service-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .service-icon {
+                margin-top: 1rem;
+                align-self: flex-start;
+            }
+
+            .enrollment-cta {
+                padding: 2rem 1.5rem;
+            }
+
+            .course-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .course-arrow {
+                width: 3rem;
+                height: 3rem;
+                align-self: flex-start;
+                margin-top: 1rem;
+            }
+
+            .package {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .package-price {
+                margin-top: 0.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title, .hero-subtitle {
+                font-size: 1.75rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bridal-text h3 {
+                font-size: 1.5rem;
+            }
+
+            .section-header-left h2 {
+                font-size: 1.75rem;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="hero grain">
+        <div class="hero-orb-1"></div>
+        <div class="hero-orb-2"></div>
+        <nav>
+        <div class="container" style="margin-bottom: 10px;">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                  <img src="./assets/s4ulogo.svg">
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index">Home</a></li>
+                <li><a href="about">About</a></li>
+                <li><a href="#salon">Salon Services</a></li>
+                <li><a href="#bridal">Bridal Makeup</a></li>
+                <li><a href="#academy">Beauty Academy</a></li>
+            </ul>
+            <a href="appointment" class="btn-book">Book Now</a>
+        </div>
+    </nav>
+        
+        <div class="hero-content" style="margin-top:30px;" >
+            <span class="hero-label">— Our Services —</span>
+            <h1 class="hero-title">Three worlds.</h1>
+            <h2 class="hero-subtitle">One destination for beauty & growth.</h2>
+            <p class="hero-subtitle-1 italic">
+            From everyday grooming to once-in-a-lifetime bridal moments and career-building beauty education at S4U Beauty Lounge, Tiruppur, we craft every stage with precision and care.
+            
+        </p>
+            <div class="hero-buttons">
+                <a href="#salon" class="btn-secondary btn-shine">Salon Services →</a>
+                <a href="#bridal" class="btn-secondary btn-shine">Bridal Packages</a>
+                <a href="#academy" class="btn-secondary btn-shine">Academy Courses</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ============================================
+         SALON SERVICES SECTION
+         ============================================ -->
+    <section class="salon-section" id="salon" >
+        <div class="container">
+            <div class="section-header">
+                <div class="section-header-left">
+                    <span class="label">— 01 · Salon Services —</span>
+                    <h2>Hair. Skin. Grooming. <br><span class="text-gradient-gold">In Tiruppur</span></h2>
+                </div>
+                <div class="section-header-right">
+                    <p>At S4U Beauty Lounge, Tiruppur, we offer complete unisex salon services including hair styling, skin treatments, nail care, grooming, and makeup delivered by skilled professionals in a clean, hygienic environment.</p>
+                </div>
+            </div>
+            
+            <div class="services-grid">
+                <div class="services-grid">
+
+    <!-- Hair Services -->
+    <div class="service-card">
+        <div class="service-header">
+            <div class="service-header-left">
+                <span class="service-number">01</span>
+                <h3 class="service-title">Hair</h3>
+            </div>
+        </div>
+
+        <ul class="service-list">
+            <li class="service-item">Haircut & Styling</li>
+            <li class="service-item">Hair Spa Treatments</li>
+            <li class="service-item">Premium Hair Spa</li>
+            
+            <li class="service-item">Premium Hair Colour</li>
+            <li class="service-item">Herbal HairPack</li>
+            <li class="service-item">Dandruff Treatments</li>
+            
+        </ul>
+
+        <a href="appointment" class="service-cta">Schedule Your Visit →</a>
+    </div>
+
+    <!-- Skin Services -->
+    <div class="service-card">
+        <div class="service-header">
+            <div class="service-header-left">
+                <span class="service-number">02</span>
+                <h3 class="service-title">Skin</h3>
+            </div>
+        </div>
+
+        <ul class="service-list">
+            <li class="service-item">Face Cleanse & Pack</li>
+            <li class="service-item">Face De-Tan Treatments</li>
+            <li class="service-item">Neck De-tan & Bleach</li>
+            <li class="service-item">Premium De-tan </li>
+            <li class="service-item">Gold & Charcoal Facials</li>
+            <li class="service-item">Glow & Bridal Facials</li>
+            
+        </ul>
+
+         <a href="appointment" class="service-cta">Schedule Your Visit →</a>
+    </div>
+
+    <!-- Facial Services -->
+    <div class="service-card">
+        <div class="service-header">
+            <div class="service-header-left">
+                <span class="service-number">03</span>
+                <h3 class="service-title">Facials</h3>
+            </div>
+        </div>
+
+        <ul class="service-list">
+            <li class="service-item">Wine Facial</li>
+            <li class="service-item">Radiant Fruit Facial</li>
+            <li class="service-item">Korean Facial</li>
+            <li class="service-item">Charcoal Facials</li>
+            <li class="service-item">Bridal Glow Facial</li>
+            <li class="service-item">Gold/Metallic Facial</li>
+        </ul>
+
+         <a href="appointment" class="service-cta">Schedule Your Visit →</a>
+    </div>
+
+    
+
+    <!-- Grooming Services -->
+    <div class="service-card">
+        <div class="service-header">
+            <div class="service-header-left">
+                <span class="service-number">04</span>
+                <h3 class="service-title">Grooming</h3>
+            </div>
+        </div>
+
+        <ul class="service-list">
+            <li class="service-item">Beard Trim & Shave</li>
+            <li class="service-item">Underarm Waxing</li>
+            <li class="service-item">Flavoured Wax</li>
+            <li class="service-item">Basic FullHand Wax</li>
+            <li class="service-item">Threading Services</li>
+            <li class="service-item">Eye-Brow Shaping</li>
+            
+            
+        </ul>
+
+         <a href="appointment" class="service-cta">Schedule Your Visit →</a>
+    </div>
+    <!-- Grooming Services -->
+    <div class="service-card">
+        <div class="service-header">
+            <div class="service-header-left">
+                <span class="service-number">05</span>
+                <h3 class="service-title">Hand & Foot Care</h3>
+            </div>
+        </div>
+
+        <ul class="service-list">
+            <li class="service-item">Manicure & Pedicure</li>
+            <li class="service-item">Premium Manicure</li>
+            <li class="service-item">Premium Pedicure</li>
+            <li class="service-item">Foot De-Tan</li>
+            <li class="service-item">Full Hand Detan</li>
+        </ul>
+
+         <a href="appointment" class="service-cta">Schedule Your Visit →</a>
+    </div>
+
+    <!-- Grooming Services -->
+    <div class="service-card">
+        <div class="service-header">
+            <div class="service-header-left">
+                <span class="service-number">06</span>
+                <h3 class="service-title">Bridal Grooming</h3>
+            </div>
+        </div>
+
+        <ul class="service-list">
+            <li class="service-item">Bridal Glow Facial</li>
+            <li class="service-item">Bridal Skin Preparation</li>
+            <li class="service-item">Groom Makeup</li>
+            <li class="service-item">Occation Makeup</li>
+            <li class="service-item">Complete Grooming Care</li>
+        </ul>
+
+         <a href="appointment" class="service-cta">Schedule Your Visit →</a>
+    </div>
+</div>
+            </div>
+            
+            <!-- Membership Section -->
+            <div class="membership text-center">
+                <img src="./assets/service-salon.jpg" alt="Salon services" class="membership-image">
+                <div class="membership-overlay"></div>
+                <div class="membership-content text-center">
+                    <span class="membership-label">— The S4U Experience —</span>
+                    <h3 class="membership-title">Beauty services crafted with care, quality & consistency.</h3>
+                    <p class="membership-description">From professional salon-grade products to skin-conscious beauty practices, every service at S4U Beauty Lounge is thoughtfully designed to deliver quality care with comfort, hygiene, and attention to your skin and hair needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ============================================
+         BRIDAL SECTION
+         ============================================ -->
+    <section class="bridal-section grain" id="bridal">
+    <div class="container">
+        <div class="bridal-header">
+            <span class="label">— 02 · Bridal Makeup —</span>
+            <h2>The bride is <span class="text-gradient-gold">the moment</span></h2>
+        </div>
+        
+        <div class="bridal-showcase">
+            <img src="./assets/service-bridal.jpg" alt="Bridal makeup showcase" class="bridal-image">
+            <div class="bridal-gradient-top"></div>
+            <div class="bridal-gradient-side"></div>
+            
+            <div class="bridal-content">
+                <div class="bridal-text">
+                    <h3>Bridal Artistry Crafted, For Every Muhurtham Moment.</h3>
+                    <p>From <span style="font-style: italic; color: var(--gold);">Radiant Muhurtham Looks </span> to <span style="font-style: italic; color: var(--gold);"> Glamorous Reception Styling,</span>  bridal makeup thoughtfully tailored with elegant finishes, expressive eyes, and camera-ready perfection. </p>
+                    <a href="appointment" class="btn-primary btn-shine">Reserve Your Date →</a>
+                </div>
+                
+                <!-- TABBED CARD SYSTEM -->
+                <div class="bridal-packages-container">
+                    <!-- Tab Triggers -->
+                    <div class="bridal-tabs">
+                        <button class="bridal-tab-trigger active" data-tab="premium">
+                            <span class="tab-label">Premium</span>
+                            <div class="tab-indicator"></div>
+                        </button>
+                        <button class="bridal-tab-trigger" data-tab="master">
+                            <span class="tab-label">Master</span>
+                            <div class="tab-indicator"></div>
+                        </button>
+                    </div>
+ 
+                    <!-- Premium Content -->
+                    <div class="bridal-tab-content active" id="premium-content">
+                        <div class="bridal-packages">
+                            <div class="package">
+                                <div class="package-details">
+                                    <h4>Matte Finish</h4>
+                                    <p>Soft, elegant bridal makeup crafted for simple engagements, traditional ceremonies, and timeless muhurtham looks with a refined natural matte finish.</p>
+                                    <div class="package-includes">Simple Engagement · Muhurtham Looks</div>
+                                </div>
+                                <div class="package-price">from ₹15,000</div>
+                            </div>
+                            <div class="package">
+                                <div class="package-details">
+                                    <h4>Glam Look</h4>
+                                    <p>Statement bridal looks created for grand celebrations, high-definition photography, and glamorous bridal presence.</p>
+                                    <div class="package-includes">Grand Engagement · Reception · Morning Muhurtham</div>
+                                </div>
+                                <div class="package-price">from ₹35,000</div>
+                            </div>
+                            <div class="package">
+                                <div class="package-details">
+                                    <h4>High Glow</h4>
+                                    <p>Radiant high-glow bridal makeup designed for glamorous receptions, spotlight moments, and ultra-luminous bridal looks.</p>
+                                    <div class="package-includes">Reception Glam · High-Glow Finish · Camera-Ready Styling</div>
+                                </div>
+                                <div class="package-price">from ₹20,000</div>
+                            </div>
+                            
+                        </div>
+                    </div>
+ 
+                    <!-- Master Content -->
+                    <div class="bridal-tab-content" id="master-content">
+                        <div class="bridal-packages">
+                            <div class="package">
+                                <div class="package-details">
+                                    <h4>Signature Matte</h4>
+                                    <p>Founder-crafted bridal artistry designed with velvety matte finishes, refined eye definition, and elegant traditional styling for graceful muhurtham and engagement looks.
+                </p>
+                                    <div class="package-includes">Simple Engagement · Traditional Muhurtham · Elegant Matte Finish</div>
+                                </div>
+                                <div class="package-price">from ₹15,000</div>
+                            </div>
+                            <div class="package">
+                                <div class="package-details">
+                                    <h4>Glam Artistry</h4>
+                                    <p>Luxury bridal glam elevated with bold eye detailing, flawless skin finishes, and statement bridal styling created for grand celebrations and reception elegance.
+                </p>
+                                    <div class="package-includes">Grand Engagement · Reception Glam · Statement Bridal Styling</div>
+                                </div>
+                                <div class="package-price">from ₹35,000</div>
+                            </div>
+                            <div class="package">
+                                <div class="package-details">
+                                    <h4>Radiance Look</h4>
+                                    <p>Signature luminous bridal makeup created for radiant receptions and spotlight bridal moments with seamless glow finishes, expressive eyes, and elevated bridal detailing.
+                </p>
+                                    <div class="package-includes"> Radiant Reception · Signature Glow · Luminous Bridal Finish</div>
+                                </div>
+                                <div class="package-price">from ₹20,000</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+    <!-- ============================================
+         ACADEMY SECTION
+         ============================================ -->
+    <section class="academy-section" id="academy">
+        <div class="container">
+            <div class="academy-header">
+                <div>
+                    <span class="label">— 03 · Beauty Academy —</span>
+                    <h2>Become the Artist <br><span class="text-gradient-gold">They Book.</span></h2>
+                </div>
+                <div>
+                    <p class="academy-description" style="margin-bottom:0"> Professional beauty education rooted in real salon experience, combining MSME-certified learning with hands-on training in makeup, hair styling, and skincare designed to help future beauty professionals build confidence, creativity, and industry-ready skills. </br> </p>
+                    <p class="academy-description italic" style="align-items:center; margin:13px 0; margin-bottom:15px;">Small batches. Real chairs. Real clients.</span></p>
+                    <div class="academy-tags">
+                        <span class="academy-tag">Hands-on Training</span>
+                        <span class="academy-tag">MSME Certified</span>
+                        <span class="academy-tag">Career-Focused Skills</span>
+                        <span class="academy-tag">Batch-Based Learning</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-info">
+                        <span class="course-number">Course 01</span>
+                        <h3 class="course-title">Level 1 Beautician</h3>
+                        <div class="course-meta">
+                            <span>⏱ 15 Days</span>
+                            <span>·</span>
+                            <span>📚 Beginner</span>
+                        </div>
+                    </div>
+                    <div class="course-arrow"><a href="appointment">→</a></div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-info">
+                        <span class="course-number">Course 02</span>
+                        <h3 class="course-title">Level 2 Beautician</h3>
+                        <div class="course-meta">
+                            <span>⏱ 1 Month</span>
+                            <span>·</span>
+                            <span>📚 Intermediate</span>
+                        </div>
+                    </div>
+                    <div class="course-arrow"><a href="appointment">→</a></div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-info">
+                        <span class="course-number">Course 03</span>
+                        <h3 class="course-title">Bridal Makeup Mastery</h3>
+                        <div class="course-meta">
+                            <span>⏱ 21 Days</span>
+                            <span>·</span>
+                            <span>📚 Advanced</span>
+                        </div>
+                    </div>
+                    <div class="course-arrow"><a href="appointment">→</a></div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-info">
+                        <span class="course-number">Course 04</span>
+                        <h3 class="course-title">Nail Art</h3>
+                        <div class="course-meta">
+                            <span>⏱ 6 Days</span>
+                            <span>·</span>
+                            <span>📚 Intermediate</span>
+                        </div>
+                    </div>
+                    <div class="course-arrow"><a href="appointment">→</a></div>
+                </div>
+            </div>
+            
+            <div class="enrollment-cta grain">
+                <div class="enrollment-background"></div>
+                <img src="./assets/service-academy.jpg" alt="" class="enrollment-image">
+                <div class="enrollment-orb"></div>
+                
+                <div class="enrollment-content">
+                    <h3 class="enrollment-title">Your journey in Beauty <span class="text-gradient-gold">Begins Here</span></h3>
+                    <p class="enrollment-description">From makeup artistry and hair styling to real salon experience, our academy is built to help passionate learners grow into confident beauty professionals.</p>
+                    <a href="appointment" class="btn-primary btn-shine">Start Your Journey →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+    <div class="container-1" >
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="logo-icon">
+                  <img src="./assets/s4ulogo.svg">
+                </div>
+                <p>
+                From expert hair, skin, and bridal makeup services to hands-on beauty academy training, S4U Beauty Lounge is built for transformation both personal and professional.
+                </p>
+                <div class="footer-social-icons">
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://wa.me/9195245 70073" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+ 
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index">Home</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="services">Services</a></li>
+                    <li><a href="appointment">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="services#salon">Salon Services in Tiruppur</a></li>
+                    <li><a href="services#bridal">Bridal Makeup in Tiruppur</a></li>
+                    <li><a href="services#academy">Beauty Academy Courses </a></li>
+                </ul>
+            </div>
+ 
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <ul>
+                    <!-- Phone Call -->
+                    <li>
+                        <a href="tel:+9195245 70073" class="footer-contact-link">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 95245 70073</span>
+                        </a>
+                    </li>
+                    
+                    <!-- WhatsApp -->
+                    <!-- <li>
+                        <a href="https://wa.me/9195245 70073" target="_blank" rel="noopener noreferrer" class="footer-contact-link">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>WhatsApp</span>
+                        </a>
+                    </li> -->
+                    
+                    <!-- Email -->
+                    <li>
+                        <a href="mailto:hello@s4ubeauty.com" class="footer-contact-link">
+                            <i class="fas fa-envelope"></i>
+                            <span>hello@s4ubeauty.com</span>
+                        </a>
+                    </li>
+                    
+                    <!-- Address -->
+                    <li>
+                        <a href="https://maps.google.com/?q=S4U+Beauty+Lounge+Tiruppur" target="_blank" rel="noopener noreferrer" class="footer-contact-link">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Sundaram Plaza, 9 ,10 Town Extension 1st Street, First St, Sheriff Colony, Floor, Tiruppur, Tamil Nadu 641604</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+ 
+        <div class="footer-bottom">
+            <div>© 2024 S4U Beauty Lounge. Crafted with care.</div>
+            <div style="letter-spacing: 0.1em;">LUXURY · TRUST · ASPIRATION</div>
+        </div>
+    </div>
+</footer>
+    
+    <!-- ============================================
+         JSON-LD STRUCTURED DATA FOR SEO
+         ============================================ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "S4U Beauty Lounge",
+      "description": "Premium unisex salon, bridal makeup studio, and beauty academy in Tirupur",
+      "image": "service-bridal.jpg",
+      "url": "https://s4ubeautylounge.com",
+      "telephone": "+919999999999",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "No 9, Sundaram Plaza, 1st Street, Sheriff Colony Extension",
+        "addressLocality": "Tirupur",
+        "addressRegion": "Tamil Nadu",
+        "postalCode": "641604",
+        "addressCountry": "IN"
+      },
+      "areaServed": ["Tirupur", "Tamil Nadu", "India"],
+      "priceRange": "₹6,000 - ₹35,000",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "07:30",
+        "closes": "20:30"
+      },
+      "sameAs": [
+        "https://www.instagram.com/s4u_salon_"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.7",
+        "reviewCount": "394"
+      },
+      "service": [
+        {
+          "@type": "Service",
+          "name": "Hair Services",
+          "description": "Professional hair cutting, styling, coloring, and treatments including keratin and smoothening"
+        },
+        {
+          "@type": "Service",
+          "name": "Skin Care Services",
+          "description": "Facials, hydra treatments, anti-aging, and pigmentation care"
+        },
+        {
+          "@type": "Service",
+          "name": "Nail Services",
+          "description": "Manicure, pedicure, gel polish, and nail art"
+        },
+        {
+          "@type": "Service",
+          "name": "Bridal Makeup",
+          "description": "Complete bridal makeup packages for wedding events"
+        },
+        {
+          "@type": "Service",
+          "name": "Beauty Academy",
+          "description": "Professional beauty courses and training programs"
+        }
+      ]
+    }
+    </script>
+    
+    <script>
+        // Active Navigation Link Tracking
+        function setActiveNavLink() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            window.addEventListener('scroll', () => {
+                let currentActiveSection = '';
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+
+                    if (window.scrollY >= sectionTop - 200 && window.scrollY < sectionTop + sectionHeight - 200) {
+                        currentActiveSection = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + currentActiveSection) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        }
+        // Smooth scroll handling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    const offset = 80;
+                    window.scrollTo({
+                        top: target.offsetTop - offset,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Intersection Observer for fade-in animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-up');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        });
+        
+        document.querySelectorAll('.service-card, .course-card, .package').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Tabbed Card Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const tabTriggers = document.querySelectorAll('.bridal-tab-trigger');
+        const tabContents = document.querySelectorAll('.bridal-tab-content');
+ 
+        tabTriggers.forEach(trigger => {
+            trigger.addEventListener('click', function() {
+                const tabName = this.getAttribute('data-tab');
+ 
+                // Remove active class from all triggers and contents
+                tabTriggers.forEach(t => t.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+ 
+                // Add active class to clicked trigger and corresponding content
+                this.classList.add('active');
+                document.getElementById(`${tabName}-content`).classList.add('active');
+            });
+        });
+    });
+    </script>
+</body>
+</html>
